@@ -1,0 +1,20 @@
+var connStr = "server=localhost\\sqlexpress;" +
+    "database=SalesDb;" +
+    "trusted_connection=true;" +
+    "trustServerCertificate=true;";
+
+
+public class AppDbContext : DbContext
+public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
+
+"server=localhost\sqlexpress;database=SalesDb;trusted_connection=true;trustServerCertificate=true;";
+
+‘Microsoft.EntityFrameworkCore.SqlServer’
+
+CapstoneDb
+
+install-package Microsoft.Entityframeworkcore.tools
+install-package Microsoft.Entityframeworkcore.sqlserver
+
+
+Scaffold-DbContext 'server=localhost\sqlexpress;database=BootcampEtfDb;trusted_connection=true;trustServerCertificate=true;' Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
