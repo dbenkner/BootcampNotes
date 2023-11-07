@@ -1,0 +1,289 @@
+C:\repos\prs\TestPrsServer>testprsserver --lang csharp --port 5555 --adddebugtrue
+*****************************************************************
+* MainDriver v1.3 - Test C# & Java API Controllers by Greg Doud
+* Server language is csharp and port is 5555
+*****************************************************************
+
+TEST: [TestGetAllUsers               ]| <<< PASS >>> |
+
+TEST: [TestAddUser                   ]| <<< PASS >>> | Code is 201
+
+TEST: [TestGetUser                   ]| <<< PASS >>> |
+
+TEST: [TestChangeUser                ]| <<< PASS >>> |
+
+TEST: [TestLogin                     ]| <<< PASS >>> |
+
+TEST: [TestRemoveUser                ]| <<< PASS >>> |
+
+TEST: [TestGetAllUsers               ]| <<< PASS >>> |
+
+TEST: [TestGetAllVendors             ]| <<< PASS >>> |
+
+TEST: [TestAddVendor                 ]| <<< PASS >>> |
+
+TEST: [TestGetVendor                 ]| <<< PASS >>> |
+
+TEST: [TestChangeVendor              ]| <<< PASS >>> |
+
+TEST: [TestRemoveVendor              ]| <<< PASS >>> |
+
+TEST: [TestGetAllVendors             ]| <<< PASS >>> |
+
+TEST: [TestGetAllProducts            ]| <<< PASS >>> |
+
+TEST: [TestAddProduct                ]| <<< PASS >>> |
+
+TEST: [TestGetProduct                ]| <<< PASS >>> |
+
+TEST: [TestChangeProduct             ]| <<< PASS >>> |
+
+TEST: [TestRemoveProduct             ]| <<< PASS >>> |
+
+TEST: [TestGetAllProducts            ]| <<< PASS >>> |
+
+TEST: [TestGetAllRequests            ]| <<< PASS >>> |
+
+TEST: [TestAddRequest                ]| <<< FAIL >>> | Code = 500
+
+ERROR: ### TestAddRequest failed. Code is 500
+ERROR: ### Some tests must be skipped
+
+TEST: [TestGetAllRequests            ]| <<< PASS >>> |
+
+TEST: [TestGetAllRequestsInReview    ]| <<< PASS >>> | UserId is 1
+
+TEST: [TestGetAllRequestsInReview    ]| <<< PASS >>> | UserId is 2
+
+TEST: [TestGetAllRequestsInReview    ]| <<< PASS >>> | UserId is 3
+
+TEST: [TestGetAllRequestlines        ]| <<< PASS >>> |
+
+TEST: [TestAddRequestline            ]| <<< PASS >>> | Read reql id 19
+
+TEST: [TestGetRequestline            ]| <<< PASS >>> |
+
+TEST: [TestChangeRequestline         ]| <<< PASS >>> |
+
+TEST: [TestRemoveRequestline         ]| <<< PASS >>> | Remove id 19
+Done ... press any key ...
+s
+C:\repos\prs\TestPrsServer>testprsserver --lang csharp --port 5555 --debug true
+*****************************************************************
+* MainDriver v1.3 - Test C# & Java API Controllers by Greg Doud
+* Server language is csharp and port is 5555
+*****************************************************************
+
+OUT: [{"id":1,"username":"sa","password":"sa","firstname":"System","lastname":"Admin","phone":"911","email":"admin@system.com","isReviewer":true,"isAdmin":true},{"id":2,"username":"rv","password":"rv","firstname":"System","lastname":"Reviewer","phone":"711","email":"reviewer@system.com","isReviewer":true,"isAdmin":false},{"id":3,"username":"us","password":"us","firstname":"System","lastname":"User","phone":"511","email":"user@system.com","isReviewer":false,"isAdmin":false},{"id":11,"username":"318823","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false},{"id":13,"username":"567815","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false},{"id":14,"username":"140245","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false},{"id":19,"username":"796323","password":"password","firstname":"ABC","lastname":"ABC","phone":"555-555-1212","email":"a@b.c","isReviewer":true,"isAdmin":false}]
+
+TEST: [TestGetAllUsers               ]| <<< PASS >>> |
+          1 | System Admin | REV | ADM
+          2 | System Reviewer | REV |
+          3 | System User |  |
+         11 | Noah Phence |  |
+         13 | Noah Phence |  |
+         14 | Noah Phence |  |
+         19 | ABC ABC | REV |
+        There are 7 users
+
+IN.: {"id":0,"username":"126265","password":"password","firstname":"ABC","lastname":"ABC","phone":"555-555-1212","email":"a@b.c","isReviewer":true,"isAdmin":false}
+
+OUT: {"id":24,"username":"126265","password":"password","firstname":"ABC","lastname":"ABC","phone":"555-555-1212","email":"a@b.c","isReviewer":true,"isAdmin":false}
+
+TEST: [TestAddUser                   ]| <<< PASS >>> | Code is 201
+        Added:  24 | ABC ABC | REV |
+
+OUT: {"id":24,"username":"126265","password":"password","firstname":"ABC","lastname":"ABC","phone":"555-555-1212","email":"a@b.c","isReviewer":true,"isAdmin":false}
+
+TEST: [TestGetUser                   ]| <<< PASS >>> |
+        Get:  24 | ABC ABC | REV |
+
+IN.: {"id":24,"username":"126265","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false}
+
+OUT: {"id":24,"username":"126265","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false}
+
+TEST: [TestChangeUser                ]| <<< PASS >>> |
+        Get:  24 | Noah Phence |  |
+
+OUT: {"id":24,"username":"126265","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false}
+
+TEST: [TestLogin                     ]| <<< PASS >>> |
+         24 | Noah Phence |  |
+
+TEST: [TestRemoveUser                ]| <<< PASS >>> |
+
+OUT: [{"id":1,"username":"sa","password":"sa","firstname":"System","lastname":"Admin","phone":"911","email":"admin@system.com","isReviewer":true,"isAdmin":true},{"id":2,"username":"rv","password":"rv","firstname":"System","lastname":"Reviewer","phone":"711","email":"reviewer@system.com","isReviewer":true,"isAdmin":false},{"id":3,"username":"us","password":"us","firstname":"System","lastname":"User","phone":"511","email":"user@system.com","isReviewer":false,"isAdmin":false},{"id":11,"username":"318823","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false},{"id":13,"username":"567815","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false},{"id":14,"username":"140245","password":"drowssap","firstname":"Noah","lastname":"Phence","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me","isReviewer":false,"isAdmin":false},{"id":19,"username":"796323","password":"password","firstname":"ABC","lastname":"ABC","phone":"555-555-1212","email":"a@b.c","isReviewer":true,"isAdmin":false}]
+
+TEST: [TestGetAllUsers               ]| <<< PASS >>> |
+          1 | System Admin | REV | ADM
+          2 | System Reviewer | REV |
+          3 | System User |  |
+         11 | Noah Phence |  |
+         13 | Noah Phence |  |
+         14 | Noah Phence |  |
+         19 | ABC ABC | REV |
+        There are 7 users
+
+OUT: [{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"},{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"},{"id":3,"code":"TARG","name":"Target","address":"17 Target Cir","city":"Minneapolis","state":"MN","zip":"54837","phone":"800-Target7","email":"info@target.com"}]
+
+TEST: [TestGetAllVendors             ]| <<< PASS >>> |
+        Vendor: 1 | Amazon
+        Vendor: 2 | BestBuy
+        Vendor: 3 | Target
+        There are 3 Vendors
+
+IN.: {"id":0,"code":"714428","name":"Vendorname","address":"XXX Main St.","city":"Newtown","state":"XX","zip":"XXXXX","phone":"555-555-1212","email":"a@b.c"}
+
+OUT: {"id":18,"code":"714428","name":"Vendorname","address":"XXX Main St.","city":"Newtown","state":"XX","zip":"XXXXX","phone":"555-555-1212","email":"a@b.c"}
+
+TEST: [TestAddVendor                 ]| <<< PASS >>> |
+        Added: Vendor: 18 | Vendorname
+
+OUT: {"id":18,"code":"714428","name":"Vendorname","address":"XXX Main St.","city":"Newtown","state":"XX","zip":"XXXXX","phone":"555-555-1212","email":"a@b.c"}
+
+TEST: [TestGetVendor                 ]| <<< PASS >>> |
+        Get: Vendor: 18 | Vendorname
+
+IN.: {"id":18,"code":"ZZZZ","name":"Noah Phence","address":"123 Any Street","city":"Mason","state":"OH","zip":"98765","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me"}
+
+OUT: {"id":18,"code":"ZZZZ","name":"Noah Phence","address":"123 Any Street","city":"Mason","state":"OH","zip":"98765","phone":"000-000-0000","email":"ThisIsNotARealEmail@WhoCaresNot.me"}
+
+TEST: [TestChangeVendor              ]| <<< PASS >>> |
+        Get: Vendor: 18 | Noah Phence
+
+TEST: [TestRemoveVendor              ]| <<< PASS >>> |
+
+OUT: [{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"},{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"},{"id":3,"code":"TARG","name":"Target","address":"17 Target Cir","city":"Minneapolis","state":"MN","zip":"54837","phone":"800-Target7","email":"info@target.com"}]
+
+TEST: [TestGetAllVendors             ]| <<< PASS >>> |
+        Vendor: 1 | Amazon
+        Vendor: 2 | BestBuy
+        Vendor: 3 | Target
+        There are 3 Vendors
+
+OUT: [{"id":1,"partNbr":"ECHO","name":"Amazon Echo","price":100.00,"unit":"Each","photoPath":null,"vendorId":1,"vendor":{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"}},{"id":2,"partNbr":"ECHODOT","name":"Amazon Echo","price":50.00,"unit":"Each","photoPath":null,"vendorId":1,"vendor":{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"}},{"id":3,"partNbr":"ECHOSHOW","name":"Amazon Show 5","price":150.00,"unit":"Each","photoPath":null,"vendorId":1,"vendor":{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"}},{"id":4,"partNbr":"IPAD","name":"Apple iPad","price":500.00,"unit":"Each","photoPath":null,"vendorId":2,"vendor":{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"}},{"id":5,"partNbr":"MACBOOKPRO","name":"Apple Macbook Pro","price":2500.00,"unit":"Each","photoPath":null,"vendorId":2,"vendor":{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"}},{"id":6,"partNbr":"EXTDRIVE","name":"Seagate 1TB Ext Drive","price":50.00,"unit":"Each","photoPath":null,"vendorId":2,"vendor":{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"}},{"id":7,"partNbr":"PAPER","name":"Paper 1 ream","price":5.00,"unit":"Each","photoPath":null,"vendorId":3,"vendor":{"id":3,"code":"TARG","name":"Target","address":"17 Target Cir","city":"Minneapolis","state":"MN","zip":"54837","phone":"800-Target7","email":"info@target.com"}},{"id":8,"partNbr":"PENS","name":"Bic Pens 20ct","price":10.00,"unit":"Each","photoPath":null,"vendorId":3,"vendor":{"id":3,"code":"TARG","name":"Target","address":"17 Target Cir","city":"Minneapolis","state":"MN","zip":"54837","phone":"800-Target7","email":"info@target.com"}},{"id":9,"partNbr":"BINDER","name":"Binder 1\"","price":15.00,"unit":"Each","photoPath":null,"vendorId":3,"vendor":{"id":3,"code":"TARG","name":"Target","address":"17 Target Cir","city":"Minneapolis","state":"MN","zip":"54837","phone":"800-Target7","email":"info@target.com"}}]
+
+TEST: [TestGetAllProducts            ]| <<< PASS >>> |
+        1 | Amazon Echo | $100.00 | Amazon
+        2 | Amazon Echo | $50.00 | Amazon
+        3 | Amazon Show 5 | $150.00 | Amazon
+        4 | Apple iPad | $500.00 | BestBuy
+        5 | Apple Macbook Pro | $2,500.00 | BestBuy
+        6 | Seagate 1TB Ext Drive | $50.00 | BestBuy
+        7 | Paper 1 ream | $5.00 | Target
+        8 | Bic Pens 20ct | $10.00 | Target
+        9 | Binder 1" | $15.00 | Target
+        There are 9 Products
+
+IN.: {"id":0,"partNbr":"908895","name":"Product X","price":123.45,"unit":"Each","photopath":null,"vendorId":1,"vendor":null}
+
+OUT: {"id":23,"partNbr":"908895","name":"Product X","price":123.45,"unit":"Each","photoPath":null,"vendorId":1,"vendor":null}
+
+TEST: [TestAddProduct                ]| <<< PASS >>> |
+        Added: 23 | Product X | $123.45 | 1
+
+OUT: {"id":23,"partNbr":"908895","name":"Product X","price":123.45,"unit":"Each","photoPath":null,"vendorId":1,"vendor":{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"}}
+
+TEST: [TestGetProduct                ]| <<< PASS >>> |
+        Get: 23 | Product X | $123.45 | Amazon
+
+IN.: {"id":23,"partNbr":"ZZZZ","name":"Product Z","price":543.21,"unit":"Dozen","photopath":null,"vendorId":2,"vendor":null}
+
+OUT: {"id":23,"partNbr":"ZZZZ","name":"Product Z","price":543.21,"unit":"Dozen","photoPath":null,"vendorId":2,"vendor":{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"}}
+
+TEST: [TestChangeProduct             ]| <<< PASS >>> |
+        Get: 23 | Product Z | $543.21 | 2
+
+TEST: [TestRemoveProduct             ]| <<< PASS >>> |
+
+OUT: [{"id":1,"partNbr":"ECHO","name":"Amazon Echo","price":100.00,"unit":"Each","photoPath":null,"vendorId":1,"vendor":{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"}},{"id":2,"partNbr":"ECHODOT","name":"Amazon Echo","price":50.00,"unit":"Each","photoPath":null,"vendorId":1,"vendor":{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"}},{"id":3,"partNbr":"ECHOSHOW","name":"Amazon Show 5","price":150.00,"unit":"Each","photoPath":null,"vendorId":1,"vendor":{"id":1,"code":"AMAZ","name":"Amazon","address":"1 Amazon Way","city":"Seattle","state":"WA","zip":"48473","phone":"800-Amazon1","email":"info@amazon.com"}},{"id":4,"partNbr":"IPAD","name":"Apple iPad","price":500.00,"unit":"Each","photoPath":null,"vendorId":2,"vendor":{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"}},{"id":5,"partNbr":"MACBOOKPRO","name":"Apple Macbook Pro","price":2500.00,"unit":"Each","photoPath":null,"vendorId":2,"vendor":{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"}},{"id":6,"partNbr":"EXTDRIVE","name":"Seagate 1TB Ext Drive","price":50.00,"unit":"Each","photoPath":null,"vendorId":2,"vendor":{"id":2,"code":"BBUY","name":"BestBuy","address":"444 Best Buy Dr","city":"Atlanta","state":"GA","zip":"39474","phone":"800-BestBuy","email":"info@bestbuy.com"}},{"id":7,"partNbr":"PAPER","name":"Paper 1 ream","price":5.00,"unit":"Each","photoPath":null,"vendorId":3,"vendor":{"id":3,"code":"TARG","name":"Target","address":"17 Target Cir","city":"Minneapolis","state":"MN","zip":"54837","phone":"800-Target7","email":"info@target.com"}},{"id":8,"partNbr":"PENS","name":"Bic Pens 20ct","price":10.00,"unit":"Each","photoPath":null,"vendorId":3,"vendor":{"id":3,"code":"TARG","name":"Target","address":"17 Target Cir","city":"Minneapolis","state":"MN","zip":"54837","phone":"800-Target7","email":"info@target.com"}},{"id":9,"partNbr":"BINDER","name":"Binder 1\"","price":15.00,"unit":"Each","photoPath":null,"vendorId":3,"vendor":{"id":3,"code":"TARG","name":"Target","address":"17 Target Cir","city":"Minneapolis","state":"MN","zip":"54837","phone":"800-Target7","email":"info@target.com"}}]
+
+TEST: [TestGetAllProducts            ]| <<< PASS >>> |
+        1 | Amazon Echo | $100.00 | Amazon
+        2 | Amazon Echo | $50.00 | Amazon
+        3 | Amazon Show 5 | $150.00 | Amazon
+        4 | Apple iPad | $500.00 | BestBuy
+        5 | Apple Macbook Pro | $2,500.00 | BestBuy
+        6 | Seagate 1TB Ext Drive | $50.00 | BestBuy
+        7 | Paper 1 ream | $5.00 | Target
+        8 | Bic Pens 20ct | $10.00 | Target
+        9 | Binder 1" | $15.00 | Target
+        There are 9 Products
+
+OUT: [{"id":1,"description":"Request 1 (sa)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"NEW","total":50.00,"userId":1,"user":{"id":1,"username":"sa","password":"sa","firstname":"System","lastname":"Admin","phone":"911","email":"admin@system.com","isReviewer":true,"isAdmin":true},"requestLines":null},{"id":2,"description":"Request 2 (rv)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"REVIEW","total":150.00,"userId":2,"user":{"id":2,"username":"rv","password":"rv","firstname":"System","lastname":"Reviewer","phone":"711","email":"reviewer@system.com","isReviewer":true,"isAdmin":false},"requestLines":null},{"id":3,"description":"Request 3 (us)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"NEW","total":100.00,"userId":3,"user":{"id":3,"username":"us","password":"us","firstname":"System","lastname":"User","phone":"511","email":"user@system.com","isReviewer":false,"isAdmin":false},"requestLines":null},{"id":4,"description":"Request 4 (us)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"REVIEW","total":150.00,"userId":3,"user":{"id":3,"username":"us","password":"us","firstname":"System","lastname":"User","phone":"511","email":"user@system.com","isReviewer":false,"isAdmin":false},"requestLines":null},{"id":5,"description":"Request 5 (us)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"NEW","total":300.00,"userId":3,"user":{"id":3,"username":"us","password":"us","firstname":"System","lastname":"User","phone":"511","email":"user@system.com","isReviewer":false,"isAdmin":false},"requestLines":null}]
+
+TEST: [TestGetAllRequests            ]| <<< PASS >>> |
+        1 | Request 1 (sa) | NEW | $50.00 | sa(1)
+        2 | Request 2 (rv) | REVIEW | $150.00 | rv(2)
+        3 | Request 3 (us) | NEW | $100.00 | us(3)
+        4 | Request 4 (us) | REVIEW | $150.00 | us(3)
+        5 | Request 5 (us) | NEW | $300.00 | us(3)
+        There are 5 Requests
+
+IN.: {"id":0,"description":"Request N (sa)","justification":"None needed","rejectionReason":null,"deliveryMode":"Pickup","status":"NEW","total":0,"userId":1,"user":null,"requestlines":null}
+
+TEST: [TestAddRequest                ]| <<< FAIL >>> | Code = 500
+
+ERROR: ### TestAddRequest failed. Code is 500
+ERROR: ### Some tests must be skipped
+
+OUT: [{"id":1,"description":"Request 1 (sa)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"NEW","total":50.00,"userId":1,"user":{"id":1,"username":"sa","password":"sa","firstname":"System","lastname":"Admin","phone":"911","email":"admin@system.com","isReviewer":true,"isAdmin":true},"requestLines":null},{"id":2,"description":"Request 2 (rv)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"REVIEW","total":150.00,"userId":2,"user":{"id":2,"username":"rv","password":"rv","firstname":"System","lastname":"Reviewer","phone":"711","email":"reviewer@system.com","isReviewer":true,"isAdmin":false},"requestLines":null},{"id":3,"description":"Request 3 (us)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"NEW","total":100.00,"userId":3,"user":{"id":3,"username":"us","password":"us","firstname":"System","lastname":"User","phone":"511","email":"user@system.com","isReviewer":false,"isAdmin":false},"requestLines":null},{"id":4,"description":"Request 4 (us)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"REVIEW","total":150.00,"userId":3,"user":{"id":3,"username":"us","password":"us","firstname":"System","lastname":"User","phone":"511","email":"user@system.com","isReviewer":false,"isAdmin":false},"requestLines":null},{"id":5,"description":"Request 5 (us)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"NEW","total":300.00,"userId":3,"user":{"id":3,"username":"us","password":"us","firstname":"System","lastname":"User","phone":"511","email":"user@system.com","isReviewer":false,"isAdmin":false},"requestLines":null}]
+
+TEST: [TestGetAllRequests            ]| <<< PASS >>> |
+        1 | Request 1 (sa) | NEW | $50.00 | sa(1)
+        2 | Request 2 (rv) | REVIEW | $150.00 | rv(2)
+        3 | Request 3 (us) | NEW | $100.00 | us(3)
+        4 | Request 4 (us) | REVIEW | $150.00 | us(3)
+        5 | Request 5 (us) | NEW | $300.00 | us(3)
+        There are 5 Requests
+
+OUT: [{"id":2,"description":"Request 2 (rv)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"REVIEW","total":150.00,"userId":2,"user":null,"requestLines":null},{"id":4,"description":"Request 4 (us)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"REVIEW","total":150.00,"userId":3,"user":null,"requestLines":null}]
+
+TEST: [TestGetAllRequestsInReview    ]| <<< PASS >>> | UserId is 1
+        2 | Request 2 (rv) | REVIEW | $150.00 | 2(2)
+        4 | Request 4 (us) | REVIEW | $150.00 | 3(3)
+        There are 2 Requests
+
+OUT: [{"id":4,"description":"Request 4 (us)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"REVIEW","total":150.00,"userId":3,"user":null,"requestLines":null}]
+
+TEST: [TestGetAllRequestsInReview    ]| <<< PASS >>> | UserId is 2
+        4 | Request 4 (us) | REVIEW | $150.00 | 3(3)
+        There are 1 Requests
+
+OUT: [{"id":2,"description":"Request 2 (rv)","justification":"None","rejectionReason":null,"deliveryMode":"Pickup","status":"REVIEW","total":150.00,"userId":2,"user":null,"requestLines":null}]
+
+TEST: [TestGetAllRequestsInReview    ]| <<< PASS >>> | UserId is 3
+        2 | Request 2 (rv) | REVIEW | $150.00 | 2(2)
+        There are 1 Requests
+
+OUT: [{"id":1,"requestId":1,"productId":2,"product":null,"quantity":1},{"id":2,"requestId":2,"productId":1,"product":null,"quantity":1},{"id":3,"requestId":2,"productId":2,"product":null,"quantity":1},{"id":4,"requestId":3,"productId":1,"product":null,"quantity":1},{"id":5,"requestId":3,"productId":2,"product":null,"quantity":1},{"id":6,"requestId":3,"productId":3,"product":null,"quantity":1}]
+
+TEST: [TestGetAllRequestlines        ]| <<< PASS >>> |
+        Id:1 | Qty:1 | PrdId:2
+        Id:2 | Qty:1 | PrdId:1
+        Id:3 | Qty:1 | PrdId:2
+        Id:4 | Qty:1 | PrdId:1
+        Id:5 | Qty:1 | PrdId:2
+        Id:6 | Qty:1 | PrdId:3
+        There are 6 Requestlines
+
+IN.: {"id":0,"quantity":1,"requestId":1,"request":null,"productId":1,"product":null}
+
+OUT: {"id":20,"requestId":1,"productId":1,"product":null,"quantity":1}
+
+TEST: [TestAddRequestline            ]| <<< PASS >>> | Read reql id 20
+        Added: Id:20 | Qty:1 | PrdId:1
+
+OUT: {"id":20,"requestId":1,"productId":1,"product":null,"quantity":1}
+
+TEST: [TestGetRequestline            ]| <<< PASS >>> |
+        Get: Id:20 | Qty:1 | PrdId:1
+
+IN.: {"id":20,"quantity":2,"requestId":1,"request":null,"productId":1,"product":null}
+
+OUT: {"id":20,"requestId":1,"productId":1,"product":null,"quantity":2}
+
+TEST: [TestChangeRequestline         ]| <<< PASS >>> |
+        Get: Id:20 | Qty:2 | PrdId:1
+
+TEST: [TestRemoveRequestline         ]| <<< PASS >>> | Remove id 20

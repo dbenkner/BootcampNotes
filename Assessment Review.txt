@@ -1,0 +1,10 @@
+Know the global attributes id, class, value.
+KNow which html statements require a closing tag. all but link, img, input 
+What is the css style to set to itatlic: Font-style: italic;
+Know how to makea table span the width of a page. "width: 100%;" 
+Style 2 divs side by side. Display: inline; width: < 50%;
+Know the Syntax of an annoymous function () => {}
+What are teh core js data types, number string, bool, undefined, null, object
+difference between == and ===. 3 must be the same datatype and value are the same. == just checks the value.
+Know the syntax to iterate through a collection in JavaScript. for(let var of vars) {}
+Know how to set or retreive dtaa in an '<input>' tag: value attribute

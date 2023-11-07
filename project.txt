@@ -1,0 +1,16 @@
+Budgeting program that allows a user to track their expenses
+See how much is being spent on different expenses and categories (Groceries, dinning out, bills, transportation, entertainment, saving etc) users can manually enter in their info or import their bank statement via a csv file from their bank. Perhaps include recomendations on how a user should save leftover money(savings, invesements etc). Allow a user to set goals for their budget (savings, buying a house, car, vacation, getting out of debt).
+tables needed:
+
+Accounts table
+Id, account name, account type
+Lineitems table
+id, userid, date, merchant, description, amount, category, account, date, balance
+Categories table
+id, category
+Goals Table
+id, userid, goal name, goal description, goal amount, date started, accountid, accountbalance, date finished
+Users Table 
+userid password username
+
+
